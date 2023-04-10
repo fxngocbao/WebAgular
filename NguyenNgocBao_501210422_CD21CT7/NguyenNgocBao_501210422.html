@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script> -->
+    <script src="../angular-1.8.2_2/angular-1.8.2/angular.min.js"></script>
+    <script src="../angular-1.8.2_2/angular-1.8.2/angular-route.min.js"></script>
+    <title>NguyenNgocBao_501210422</title>
+    <style>
+        .row {
+            float: left;
+            text-align: center;
+            padding: 10px;
+            border-radius: 10px;
+            margin: 10px 20px;
+        }
+    </style>
+
+</head>
+
+<body ng-app="AngularfilterApp">
+
+    <!--Thanh navar-->
+    <nav class="navbar navbar-expand-lg bg-light fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="./Ảnh/logo.png" alt="Avatar Logo" style="width:60px;" class=""><br>
+                <h6></h6>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="collapsibleNavbar" style="padding-right: 20px;text-align:center; color: rgb(6, 12, 18);">
+                <ul class="nav nav-pills" style="padding-left:100px ;">
+                    <li class="nav-item">
+                        <a class="nav-link " href="./NguyenNgocBao_501210422.html"><i class="bi bi-house-door-fill"></i> TRANG CHỦ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">GUITAR</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">SÁO TRÚC</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">HARMONICA</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="bi bi-list"></i>KHÁC</a>
+                    </li>
+                    <div>
+                        <form class="d-flex" style="padding-left: 400px;" ng-controller="filterctrl">
+                            <input class="form-control me-2" type="text" placeholder="Tìm kiếm sản phẩm" input ng-model="searchtxt.name">
+                            <button class="btn" type="button"><i class="bi bi-search"></i></button>
+                            <!-- <input ng-model="searchtxt.name" type="text" placeholder="Enter Only Name"><br /> -->
+                        </form>
+                    </div>
+
+                    <div class="d-flex" style="color: azure;">
+                        <p>
+                            <a href="./admin.html">
+                                <button type="button" class="btn "><i class="bi bi-person-square"></i>ADMIN</button>
+                            </a>
+                            <a href="./user.html">
+                                <button type="button" class="btn"><i class="bi bi-people-fill"></i>USER</button>
+                            </a>
+                        </p>
+                    </div>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div id="demo" class="carousel slide" data-bs-ride="carousel mt-3" style="margin-top: 90px;">
+
+        <!-- Indicators/dots -->
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
+            <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
+            <button type="button" data-bs-target="#demo" data-bs-slide-to="2"></button>
+        </div>
+
+        <!-- The slideshow/carousel -->
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="./Ảnh/Untitled-1.jpg" alt="Los Angeles" class="d-block" style="width:1500px; height: 500px;">
+                <div class="carousel-caption">
+                    <h3>Âm nhạc</h3>
+                    <p>Tiếng nói của tâm hồn</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="./Ảnh/Untitled-2.jpg" alt="Los Angeles" class="d-block" style="width:1500px; height: 500px;">
+                <div class="carousel-caption">
+                    <h3>Âm nhạc</h3>
+                    <p>Âm thanh của hòa bình</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="./Ảnh/Untitled-3.jpg" alt="Los Angeles" class="d-block" style="width:1500px; height: 500px;">
+                <div class="carousel-caption">
+                    <h3>Âm nhạc</h3>
+                    <p>Người bạn tri kỉ</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Left and right controls/icons -->
+        <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon"></span>
+    </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
+      <span class="carousel-control-next-icon"></span>
+    </button>
+    </div>
+    <div ng-controller="filterctrl">
+        <!-- <h5>Danh mục sản phẩm</h5>
+        Tìm kiếm sản phẩm:<input ng-model="searchtxt.name" type="text" placeholder="Tên sản phẩm">
+        <table>
+            <tr>
+                <th>Tên sản phẩm</th>
+                <th>Giá</th>
+            </tr>
+            <tr ng-repeat="user in users | filter : searchtxt">
+                <td>{{user.name}}</td>
+                <td>{{user.age}}</td>
+            </tr>
+        </table> -->
+
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="row">
+                    <div class="col-lg-3">
+                        <div class="card">
+                            <div class="card-body"><img src="./Ảnh/sao.jpg" class="w-100" alt="" height="300px;"></div>
+                            <div class="card-footer">
+                                <h4 class="card-title">Sáo trúc tone C</h4>
+                                <p class="card-text" style="color: red;">Giá: 250.000 VNĐ</p>
+                                <a href="./muahang.html">
+                                    <button type="button" class="btn btn-primary">Add card</button>
+                                </a>
+                                <a href="./muahang.html">
+                                    <button type="button" class="btn btn-primary">Buy now</button>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3">
+                        <div class="card">
+                            <div class="card-body"><img src="./Ảnh/saobau.jpg" class="w-100" alt="" height="300px;"></div>
+                            <div class="card-footer">
+                                <h4 class="card-title">Sáo Bầu</h4>
+                                <p class="card-text" style="color: red;">Giá: 500.000 VNĐ</p>
+                                <a href="./muahang.html">
+                                    <button type="button" class="btn btn-primary">Add card</button>
+                                </a>
+                                <a href="./muahang.html">
+                                    <button type="button" class="btn btn-primary">Buy now</button>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3">
+                        <div class="card">
+                            <div class="card-body"><img src="./Ảnh/tieu.jpg" class="w-100" alt="" height="300px;"></div>
+                            <div class="card-footer">
+                                <h4 class="card-title">Tiêu Trúc</h4>
+                                <p class="card-text" style="color: red;">Giá: 300.000 VNĐ</p>
+                                <a href="./muahang.html">
+                                    <button type="button" class="btn btn-primary">Add card</button>
+                                </a>
+                                <a href="./muahang.html">
+                                    <button type="button" class="btn btn-primary">Buy now</button>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3">
+                        <div class="card">
+                            <div class="card-body"><img src="./Ảnh/guitar.jpg" class="w-100" alt="" height="300px;"></div>
+                            <div class="card-footer">
+                                <h4 class="card-title">Đàn Guitar</h4>
+                                <p class="card-text" style="color: red;">Giá: 3.000.000 VNĐ</p>
+                                <a href="./muahang.html">
+                                    <button type="button" class="btn btn-primary">Add card</button>
+                                </a>
+                                <a href="./muahang.html">
+                                    <button type="button" class="btn btn-primary">Buy now</button>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <p></p>
+                    <div class="col-lg-3">
+                        <div class="card">
+                            <div class="card-body"><img src="./Ảnh/ha2.jpg" class="w-100" alt="" height="300px;"></div>
+                            <div class="card-footer">
+                                <h4 class="card-title">Kèn Harmonica Suzuki 24 lỗ</h4>
+                                <p class="card-text" style="color: red;">Giá: 500.000 VNĐ</p>
+                                <a href="./muahang.html">
+                                    <button type="button" class="btn btn-primary">Add card</button>
+                                </a>
+                                <a href="./muahang.html">
+                                    <button type="button" class="btn btn-primary">Buy now</button>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3">
+                        <div class="card">
+                            <div class="card-body"><img src="./Ảnh/ha3.jpg" class="w-100" alt="" height="300px;"></div>
+                            <div class="card-footer">
+                                <h4 class="card-title">Kèn Harmonica Suzuki 8 lỗ</h4>
+                                <p class="card-text" style="color: red;">Giá: 1.000.000 VNĐ</p>
+                                <a href="./muahang.html">
+                                    <button type="button" class="btn btn-primary">Add card</button>
+                                </a>
+                                <a href="./muahang.html">
+                                    <button type="button" class="btn btn-primary">Buy now</button>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="card">
+                            <div class="card-body"><img src="./Ảnh/drum.jpeg" class="w-100" alt="" height="300px;"></div>
+                            <div class="card-footer">
+                                <h4 class="card-title">Trống drum</h4>
+                                <p class="card-text" style="color: red;">Giá: 1.000.000 VNĐ</p>
+                                <a href="./muahang.html">
+                                    <button type="button" class="btn btn-primary">Add card</button>
+                                </a>
+                                <a href="./muahang.html">
+                                    <button type="button" class="btn btn-primary">Buy now</button>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="card">
+                            <div class="card-body"><img src="./Ảnh/gobo.jpg" class="w-100" alt="" height="300px;"></div>
+                            <div class="card-footer">
+                                <h4 class="card-title">Trống gõ bo</h4>
+                                <p class="card-text" style="color: red;">Giá: 400.000 VNĐ</p>
+                                <a href="./muahang.html">
+                                    <button type="button" class="btn btn-primary">Add card</button>
+                                </a>
+                                <a href="./muahang.html">
+                                    <button type="button" class="btn btn-primary">Buy now</button>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <p></p>
+                    <div class="col-lg-3">
+                        <div class="card">
+                            <div class="card-body"><img src="./Ảnh/kalimba.jpg" class="w-100" alt="" height="300px;"></div>
+                            <div class="card-footer">
+                                <h4 class="card-title">Đàn Kalimba Jecko</h4>
+                                <p class="card-text" style="color: red;">Giá: 900.000 VNĐ</p>
+                                <a href="./muahang.html">
+                                    <button type="button" class="btn btn-primary">Add card</button>
+                                </a>
+                                <a href="./muahang.html">
+                                    <button type="button" class="btn btn-primary">Buy now</button>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="card">
+                            <div class="card-body"><img src="./Ảnh/flute.jpg" class="w-100" alt="" height="300px;"></div>
+                            <div class="card-footer">
+                                <h4 class="card-title">Sáo Flute</h4>
+                                <p class="card-text" style="color: red;">Giá: 2.000.000 VNĐ</p>
+                                <a href="./muahang.html">
+                                    <button type="button" class="btn btn-primary">Add card</button>
+                                </a>
+                                <a href="./muahang.html">
+                                    <button type="button" class="btn btn-primary">Buy now</button>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="card">
+                            <div class="card-body"><img src="./Ảnh/piano.jpg" class="w-100" alt="" height="300px;"></div>
+                            <div class="card-footer">
+                                <h4 class="card-title">Đàn Piano</h4>
+                                <p class="card-text" style="color: red;">Giá: 20.000.000 VNĐ</p>
+                                <a href="./muahang.html">
+                                    <button type="button" class="btn btn-primary">Add card</button>
+                                </a>
+                                <a href="./muahang.html">
+                                    <button type="button" class="btn btn-primary">Buy now</button>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="card">
+                            <div class="card-body"><img src="./Ảnh/trumpet.jpg" class="w-100" alt="" height="300px;"></div>
+                            <div class="card-footer">
+                                <h4 class="card-title">Kèn Trumpet</h4>
+                                <p class="card-text" style="color: red;">Giá: 17.000.000 VNĐ</p>
+                                <a href="./muahang.html">
+                                    <button type="button" class="btn btn-primary">Add card</button>
+                                </a>
+                                <a href="./muahang.html">
+                                    <button type="button" class="btn btn-primary">Buy now</button>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!----------------------------------------------------->
+        <div class="w-100 mx-auto pt-5">
+            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4" style="padding-left: 70px;">
+                <div class="col">
+                    <div class="card-body text-center">
+                        <button type="button" class="btn btn-outline-warning"><i class="bi bi-bag-fill" style="font-size:100px;"></i></button>
+                        <h4>Cửa hàng</h4>
+                        <p>
+                            Since we do not have any page to link it to
+                        </p>
+                        <p style="color:red ;">Go shop
+                            <p>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card-body text-center">
+                        <button type="button" class="btn btn-outline-warning"><i class="bi bi-people-fill" style="font-size:100px;"></i></button>
+                        <h4>Người dùng</h4>
+                        <p>
+                            Since we do not have any page to link it to
+                        </p>
+                        <p style="color:red ;">Go shop
+                            <p>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card-body text-center">
+                        <button type="button" class="btn btn-outline-warning"><i class="bi bi-music-note-beamed" style="font-size:100px;"></i></button>
+                        <h4>Âm nhạc</h4>
+                        <p>
+                            Since we do not have any page to link it to
+                        </p>
+                        <p style="color:red ;">Go shop
+                            <p>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card-body text-center">
+                        <button type="button" class="btn btn-outline-warning"><i class="bi bi-heart-fill" style="font-size:100px;"></i></button>
+                        <h4>Sự tin tưởng</h4>
+                        <p>
+                            Since we do not have any page to link it to
+                        </p>
+                        <a href="" style="color:red ;">Go shop
+                        <a>
+                </div>
+            </div>
+        </div>
+
+    <!-- Footer-->
+    
+    <footer class="row bg-dark text-secondary mt-3">
+        <div class="col-lg-6">
+            <h3 class="text-white">THÔNG TIN</h3>
+            <hr>
+            <a style="text-align: justify;">Music Life là cửa hàng chuyên cung cấp các loại nhạc cụ trên toàn quốc. Với sự có mặt 35 năm có mặt tại 
+                Việt Nam. Hiện giờ cửa hàng có mặt trên 30 tỉnh thành cả nước. Music Life luôn mang đến cho bạn các loại nhạc cụ tốt nhất với những âm
+            thanh lôi cuốn của mỗi loại nhạc cụ.</a>
+                    </div>
+
+                    <div class="col-lg-3">
+                        <h3 class="text-white">SẢN PHẨM</h3>
+                        <hr>
+                        <ul class="nav flex-column">
+                            <li class="nav-item">
+                                <a class="nav-link2 p-0 text-secondary text-decoration-none" href="#">Đàn guitar</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link2 p-0 text-secondary text-decoration-none" href="#">Sáo trúc</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link2 p-0 text-secondary text-decoration-none" href="#">Piano</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link2 p-0 text-secondary text-decoration-none" href="#">Trống</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link2 p-0 text-secondary text-decoration-none" href="#">Kalimba</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link2 p-0 text-secondary text-decoration-none" href="#">Fulute</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link2 p-0 text-secondary text-decoration-none" href="#">Kèn Trumpet</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="col-lg-3">
+                        <h3 class="text-white">LIÊN HỆ</h3>
+                        <hr>
+                        <ul class="nav flex-column">
+                            <li class="nav-item">
+                                <a class="nav-link2 p-0 text-secondary text-decoration-none" href="#"><i class="bi bi-telephone-fill"></i> Điện thoại: 0977750716</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link2 p-0 text-secondary text-decoration-none" href="#"><i class="bi bi-facebook"></i> Facebook: Fx Ngọc Bảo</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link2 p-0 text-secondary text-decoration-none" href="#"><i class="bi bi-envelope-heart-fill"></i> Mail: fxngocbao@gmail.com</a>
+                            </li>
+                            <li class="nav-item">
+</body>
+
+</html>
+<script>
+    var app = angular.module("AngularfilterApp", []);
+
+    app.controller("filterctrl", function($scope) {
+
+        $scope.users = [{
+
+            name: "Sáo trúc tone C",
+            age: "250.000 VNĐ",
+        }, {
+            name: "Sáo bầu",
+            age: "500.000 VNĐ"
+        }, {
+            name: "Tiêu trúc",
+            age: "300.000 VNĐ"
+        }, {
+            name: "Đàn Guitar",
+            age: "3.000.000 VNĐ"
+        }, {
+            name: "Kèn Harmonica Suzuki 24 lỗ",
+            age: "500.000 VNĐ"
+        }, {
+            name: "Kèn Harmonica Suzuki 8 lỗ",
+            age: "1.000.000 VNĐ"
+        }, {
+            name: "Trống drum",
+            age: "1.000.000 VNĐ"
+        }, {
+            name: "Trống gõ bo",
+            age: "400.000 VNĐ"
+        }, {
+            name: "Đàn Kalimba Jecko",
+            age: "900.000 VNĐ"
+        }, {
+            name: "Sáo Flute",
+            age: "2.000.000 VNĐ"
+        }, {
+            name: "Đàn Piano",
+            age: "20.000.000 VNĐ"
+        }, {
+            name: "Kèn Trumpet",
+            age: "17.000.000 VNĐ"
+        }];
+
+    });
+</script>

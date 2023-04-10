@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script> -->
+    <script src="../angular-1.8.2_2/angular-1.8.2/angular.min.js"></script>
+    <script src="../angular-1.8.2_2/angular-1.8.2/angular-route.min.js"></script>
+    <title>Document</title>
+</head>
+<style>
+    .form-alogin {
+        width: 500px;
+        margin: auto;
+        text-align: left;
+        padding: 20px;
+        background-color: #0bd6ff;
+    }
+    
+    .form-alogin .form-items {
+        padding-bottom: 10px;
+    }
+    
+    .form-items input {
+        height: 26px;
+        width: 90%;
+        padding: 5px;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+        outline: none;
+    }
+    
+    .submit-button input {
+        height: 40px;
+        width: 100px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        outline: none;
+        background-color: rgb(24, 109, 188);
+        color: #fff;
+        margin-bottom: 20px;
+    }
+</style>
+
+<body>
+
+    <!--Thanh navar-->
+    <nav class="navbar navbar-expand-lg bg-light fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="./Ảnh/logo.png" alt="Avatar Logo" style="width:60px;" class=""><br>
+                <h6></h6>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="collapsibleNavbar" style="padding-right: 20px;text-align:center; color: rgb(6, 12, 18);">
+                <ul class="nav nav-pills" style="padding-left:100px ;">
+                    <li class="nav-item">
+                        <a class="nav-link " href="./NguyenNgocBao_501210422.html"><i class="bi bi-house-door-fill"></i> TRANG CHỦ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">GUITAR</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">SÁO TRÚC</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">HARMONICA</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="bi bi-list"></i>KHÁC</a>
+                    </li>
+                    <div>
+                        <form class="d-flex" style="padding-left: 400px;" ng-controller="filterctrl">
+                            <input class="form-control me-2" type="text" placeholder="Tìm kiếm sản phẩm" input ng-model="searchtxt.name">
+                            <button class="btn" type="button"><i class="bi bi-search"></i></button>
+                            <!-- <input ng-model="searchtxt.name" type="text" placeholder="Enter Only Name"><br /> -->
+                        </form>
+                    </div>
+
+                    <div class="d-flex" style="color: azure;">
+                        <p>
+                            <a href="./admin.html">
+                                <button type="button" class="btn "><i class="bi bi-person-square"></i>ADMIN</button>
+                            </a>
+                            <a href="./user.html">
+                                <button type="button" class="btn"><i class="bi bi-people-fill"></i>USER</button>
+                            </a>
+                        </p>
+                    </div>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Chỉnh sửa-->
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: aquamarine;">
+
+        <div class="container-fluid">
+            <img src="hinhanh/tải xuống.png" style="width: 50px; " alt="">
+            <div class="collapse navbar-collapse justify-content-center  id=" collapsibleNavbar ">
+                <ul class="navbar-nav " >
+                    <li class="nav-item btn-outline-light "  >
+                        <a class="nav-link " href="# ">category</a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link " href="# ">Product</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+  </nav>
+
+<div style="margin-top:100px; ">
+    <div class="form-alogin ">
+        <div class="form-login-item ">
+            <h2>Thêm sản phẩm</h2>
+           <form>
+           <div class="form-items ">
+               <lable for=" ">Mã sản phẩm</lable>
+               <input type="number " placeholder="MT01 "  >
+           </div>
+           <div class="form-items ">
+            <lable for=" ">Tên sản phẩm</lable>
+            <input type="text " placeholder="vd: Guitar "  >
+        </div>
+        <div class="form-items ">
+            <lable for=" ">Hình ảnh</lable>
+                <input type="file" placeholder="Tải hình ảnh lên "  >
+        </div>
+        <div class="form-items ">
+            <lable for=" ">Giá: </lable>
+            <input type="number " placeholder="3.000.000 VND "  >
+        </div>
+           <a  href="./chinhsua.html ">
+               <button type="button " class="btn-primary ">Thêm</button>
+           </a>
+            </form>
+        </div>
+       </div>
+
+    <!----------------------------------------------------->
+    <div class="w-100 mx-auto pt-5 ">
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 " style="padding-left: 70px; ">
+            <div class="col ">
+                <div class="card-body text-center ">
+                    <button type="button " class="btn btn-outline-warning "><i class="bi bi-bag-fill " style="font-size:100px; "></i></button>
+                    <h4>Cửa hàng</h4>
+                    <p>
+                        Since we do not have any page to link it to
+                    </p>
+                    <p style="color:red ; ">Go shop
+                        <p>
+                </div>
+            </div>
+            <div class="col ">
+                <div class="card-body text-center ">
+                    <button type="button " class="btn btn-outline-warning "><i class="bi bi-people-fill " style="font-size:100px; "></i></button>
+                    <h4>Người dùng</h4>
+                    <p>
+                        Since we do not have any page to link it to
+                    </p>
+                    <p style="color:red ; ">Go shop
+                        <p>
+                </div>
+            </div>
+            <div class="col ">
+                <div class="card-body text-center ">
+                    <button type="button " class="btn btn-outline-warning "><i class="bi bi-music-note-beamed " style="font-size:100px; "></i></button>
+                    <h4>Âm nhạc</h4>
+                    <p>
+                        Since we do not have any page to link it to
+                    </p>
+                    <p style="color:red ; ">Go shop
+                        <p>
+                </div>
+            </div>
+            <div class="col ">
+                <div class="card-body text-center ">
+                    <button type="button " class="btn btn-outline-warning "><i class="bi bi-heart-fill " style="font-size:100px; "></i></button>
+                    <h4>Sự tin tưởng</h4>
+                    <p>
+                        Since we do not have any page to link it to
+                    </p>
+                    <a href=" " style="color:red ; ">Go shop
+                    <a>
+            </div>
+        </div>
+    </div>
+
+<!-- Footer-->
+
+<footer class="row bg-dark text-secondary mt-3 ">
+    <div class="col-lg-6 ">
+        <h3 class="text-white ">THÔNG TIN</h3>
+        <hr>
+        <a style="text-align: justify; ">Music Life là cửa hàng chuyên cung cấp các loại nhạc cụ trên toàn quốc. Với sự có mặt 35 năm có mặt tại 
+            Việt Nam. Hiện giờ cửa hàng có mặt trên 30 tỉnh thành cả nước. Music Life luôn mang đến cho bạn các loại nhạc cụ tốt nhất với những âm
+        thanh lôi cuốn của mỗi loại nhạc cụ.</a>
+                </div>
+
+                <div class="col-lg-3 ">
+                    <h3 class="text-white ">SẢN PHẨM</h3>
+                    <hr>
+                    <ul class="nav flex-column ">
+                        <li class="nav-item ">
+                            <a class="nav-link2 p-0 text-secondary text-decoration-none " href="# ">Đàn guitar</a>
+                        </li>
+                        <li class="nav-item ">
+                            <a class="nav-link2 p-0 text-secondary text-decoration-none " href="# ">Sáo trúc</a>
+                        </li>
+                        <li class="nav-item ">
+                            <a class="nav-link2 p-0 text-secondary text-decoration-none " href="# ">Piano</a>
+                        </li>
+                        <li class="nav-item ">
+                            <a class="nav-link2 p-0 text-secondary text-decoration-none " href="# ">Trống</a>
+                        </li>
+                        <li class="nav-item ">
+                            <a class="nav-link2 p-0 text-secondary text-decoration-none " href="# ">Kalimba</a>
+                        </li>
+                        <li class="nav-item ">
+                            <a class="nav-link2 p-0 text-secondary text-decoration-none " href="# ">Fulute</a>
+                        </li>
+                        <li class="nav-item ">
+                            <a class="nav-link2 p-0 text-secondary text-decoration-none " href="# ">Kèn Trumpet</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-3 ">
+                    <h3 class="text-white ">LIÊN HỆ</h3>
+                    <hr>
+                    <ul class="nav flex-column ">
+                        <li class="nav-item ">
+                            <a class="nav-link2 p-0 text-secondary text-decoration-none " href="# "><i class="bi bi-telephone-fill "></i> Điện thoại: 0977750716</a>
+                        </li>
+                        <li class="nav-item ">
+                            <a class="nav-link2 p-0 text-secondary text-decoration-none " href="# "><i class="bi bi-facebook "></i> Facebook: Fx Ngọc Bảo</a>
+                        </li>
+                        <li class="nav-item ">
+                            <a class="nav-link2 p-0 text-secondary text-decoration-none " href="# "><i class="bi bi-envelope-heart-fill "></i> Mail: fxngocbao@gmail.com</a>
+                        </li>
+                        <li class="nav-item ">
+</body>
+
+</html>

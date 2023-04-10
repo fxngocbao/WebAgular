@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.3/angular.min.js" integrity="sha512-KZmyTq3PLx9EZl0RHShHQuXtrvdJ+m35tuOiwlcZfs/rE7NZv29ygNA8SFCkMXTnYZQK2OX0Gm2qKGfvWEtRXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <title>NguyenNgocBao_501210422</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg bg-light ">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="./Ảnh/logo.png" alt="Avatar Logo" style="width:60px;" class=""><br>
+                <h6></h6>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="collapsibleNavbar" style="padding-right: 20px;text-align:center; color: rgb(6, 12, 18);">
+                <ul class="nav nav-pills" style="padding-left:100px ;">
+                    <li class="nav-item">
+                        <a class="nav-link " href="./NguyenNgocBao_501210422.html">TRANG CHỦ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">GUITAR</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">SÁO TRÚC</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">HARMONICA</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">KHÁC</a>
+                    </li>
+                    <form class="d-flex" style="padding-left: 400px;">
+                        <input class="form-control me-2" type="text" placeholder="Search">
+                        <button class="btn" type="button"><i class="bi bi-search"></i></button>
+                    </form>
+                    <div class="d-flex" style="color: azure;">
+                        <p>
+                            <a href="./admin.html">
+                                <button type="button" class="btn "><i class="bi bi-person-square"></i>ADMIN</button>
+                            </a>
+                            <a href="#">
+                                <button type="button" class="btn"><i class="bi bi-people-fill"></i>USER</button>
+                            </a>
+                        </p>
+                    </div>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <h3 Align=Center> ĐĂNG KÝ NGƯỜI DÙNG </h3>
+    <form action=dangkythanhvien.htm name=dangky method=post onSubmit="return kiemtra()">
+        <table border=0 align=center width="500">
+            <tr>
+                <td width="150">Họ và Tên:(*)</td>
+                <td width="350"><input type=text name="txthoten">
+                </td>
+            </tr>
+            <tr>
+                <td>Giới Tính :</td>
+                <td>
+                    <select name=gt size="1">
+        <option value=0>Nam
+        <option value=1>Nữ
+        </select></td>
+            </tr>
+            <tr>
+                <td>Ngày sinh :(*)</td>
+                <td>Ngày:<select name=ngay>
+        <option value=1>01<option value=2>02
+        <option value=3>03<option value=4>04
+        <option value=5>05<option value=6>06
+        <option value=7>07<option value=8>08
+        <option value=9>09<option value=10>10
+        <option value=11>11<option value=12>12
+        <option value=13>13<option value=14>14
+        <option value=15>15<option value=16>16
+        <option value=17>17<option value=18>18
+        <option value=19>19<option value=20>20
+        <option value=21>21<option value=22>22
+        <option value=23>23<option value=24>24
+        <option value=25>25<option value=26>26
+        <option value=27>27<option value=28>28
+        <option value=29>29<option value=30>30
+        <option value=31>31</select> Tháng:
+                    <select name=thang>
+        <option value=1>01<option value=2>02
+        <option value=3>03<option value=4>04
+        <option value=5>05<option value=6>06
+        <option value=7>07<option value=8>08
+        <option value=9>09<option value=10>10
+        <option value=11>11<option value=12>12</select> Năm:
+                    <input type=text size="3" name="nam"></td>
+            </tr>
+            <tr>
+                <td>Email (*)</td>
+                <td><input name="em" type="text" maxlength="40" size=20></td>
+            </tr>
+            <tr>
+                <td>Tên Đăng Nhập :(*)</td>
+                <td><input type=text name=tdn size=20></td>
+            </tr>
+            <tr>
+                <td>Mật khẩu :(*)</td>
+                <td><input type=password name=mk size=20></td>
+            </tr>
+            <tr>
+                <td>Nhập lại Mật khẩu :(*)</td>
+                <td><input type=password name=nlmk size=20></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <button onclick="location.href='./NguyenNgocBao_501210422.html';" class="btn btn-primary" type="button">Đăng kí</button>
+                    <button onclick="location.href='./NguyenNgocBao_501210422.html';" class="btn btn-primary" type="button">Bỏ qua</button></td>
+            </tr>
+        </table>
+    </form>
+    <!----------------------------------------------->
+    <div class="w-100 mx-auto pt-5">
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4">
+            <div class="col">
+                <div class="card-body text-center">
+                    <button type="button" class="btn btn-outline-warning"><i class="bi bi-bag-fill" style="font-size:100px;"></i></button>
+                    <h4>Cửa hàng</h4>
+                    <p>
+                        Since we do not have any page to link it to
+                    </p>
+                    <p style="color:red ;">Go shop
+                        <p>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card-body text-center">
+                    <button type="button" class="btn btn-outline-warning"><i class="bi bi-people-fill" style="font-size:100px;"></i></button>
+                    <h4>Người dùng</h4>
+                    <p>
+                        Since we do not have any page to link it to
+                    </p>
+                    <p style="color:red ;">Go shop
+                        <p>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card-body text-center">
+                    <button type="button" class="btn btn-outline-warning"><i class="bi bi-music-note-beamed" style="font-size:100px;"></i></button>
+                    <h4>Âm nhạc</h4>
+                    <p>
+                        Since we do not have any page to link it to
+                    </p>
+                    <p style="color:red ;">Go shop
+                        <p>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card-body text-center">
+                    <button type="button" class="btn btn-outline-warning"><i class="bi bi-heart-fill" style="font-size:100px;"></i></button>
+                    <h4>Sự tin tưởng</h4>
+                    <p>
+                        Since we do not have any page to link it to
+                    </p>
+                    <a href="" style="color:red ;">Go shop
+                        <a>
+                </div>
+            </div>
+        </div>
+    <!-- Footer-->
+    <footer class="row bg-dark text-secondary mt-3">
+        <div class="col-lg-6">
+            <h3 class="text-white">THÔNG TIN</h3>
+            <hr>
+            <a style="text-align: justify;">Music Life là cửa hàng chuyên cung cấp các loại nhạc cụ trên toàn quốc. Với sự có mặt 35 năm có mặt tại 
+                Việt Nam. Hiện giờ cửa hàng có mặt trên 30 tỉnh thành cả nước. Music Life luôn mang đến cho bạn các loại nhạc cụ tốt nhất với những âm
+            thanh lôi cuốn của mỗi loại nhạc cụ.</a>
+                </div>
+
+                <div class="col-lg-3">
+                    <h3 class="text-white">SẢN PHẨM</h3>
+                    <hr>
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link2 p-0 text-secondary text-decoration-none" href="#">Đàn guitar</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link2 p-0 text-secondary text-decoration-none" href="#">Sáo trúc</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link2 p-0 text-secondary text-decoration-none" href="#">Piano</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link2 p-0 text-secondary text-decoration-none" href="#">Trống</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link2 p-0 text-secondary text-decoration-none" href="#">Kalimba</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link2 p-0 text-secondary text-decoration-none" href="#">Fulute</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link2 p-0 text-secondary text-decoration-none" href="#">Kèn Trumpet</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-3">
+                    <h3 class="text-white">LIÊN HỆ</h3>
+                    <hr>
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link2 p-0 text-secondary text-decoration-none" href="#"><i class="bi bi-telephone-fill"></i> Điện thoại: 0977750716</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link2 p-0 text-secondary text-decoration-none" href="#"><i class="bi bi-facebook"></i> Facebook: Fx Ngọc Bảo</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link2 p-0 text-secondary text-decoration-none" href="#"><i class="bi bi-envelope-heart-fill"></i> Mail: fxngocbao@gmail.com</a>
+                        </li>
+                        <li class="nav-item">
+
+</body>
+<script>
+    function kiemtra() {
+        var ht = window.document.dangky.txthoten.value;
+        var na = window.document.dangky.nam.value;
+        var email = window.document.dangky.em.value;
+        var tdn = window.document.dangky.tdn.value;
+        var mk = window.document.dangky.mk.value;
+        var nlmk = window.document.dangky.nlmk.value
+        if (ht.length == 0) {
+            alert("vui lòng nhập họ ten");
+            window.document.dangky.txthoten.focus();
+            return false;
+        }
+        if (na.length == 0) {
+            alert("hãy điền năm sinh");
+            window.document.dangky.nam.focus();
+            return false;
+        }
+        if (isNaN(na) == true) {
+            alert("Day khong phai la so");
+            window.document.dangky.nam.value = "";
+            document.dangky.nam.focus();
+            return false;
+        }
+        re = /\w+@\w+\.\w+/;
+        if (email == "") {
+            alert("Bạn chưa nhập email")
+            window.document.dangky.em.value = "";
+            document.dangky.em.focus();
+            return false
+        } else if (re.test(email) == false) {
+            alert("Email không đúng định dạng!")
+            document.dangky.em.focus();
+            return false
+        }
+        if (tdn.length == 0) {
+            alert("hãy điền tên đăng nhập");
+            window.document.dangky.tdn.focus();
+            return false;
+        }
+        if (mk.length == 0) {
+            alert("hãy nhập mật khẩu");
+            window.document.dangky.mk.focus();
+            return false;
+        }
+        if (nlmk.length == 0) {
+            alert("hãy nhập lại mật khẩu");
+            window.document.dangky.nlmk.focus();
+            return false;
+        }
+        if (mk != nlmk) {
+            alert("mật khẩu và nhập lại mật khẩu ko trùng nhau");
+            window.document.dangky.nlmk.focus();
+            return false;
+        }
+        alert("Đăng kí thành công. Chúc mừng bạn.")
+        return true;
+    }
+</script>
+
+</html>
